@@ -1,0 +1,16 @@
+x=int(input())
+l=list(map(int,input().split()))
+total=0
+y=int(input())
+from collections import Counter
+new=list(Counter(l).items())
+count_list=list(Counter(l).values())
+size_list=list((Counter(l).keys()))
+for i in range(y):
+    size,price=map(int,input().split())
+    if size in size_list:
+        j=size_list.index(size)
+        if count_list[j] > 0:
+            total=total+price
+            count_list[j]=count_list[j]-1
+print(total)
